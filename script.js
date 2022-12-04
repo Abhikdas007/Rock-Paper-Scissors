@@ -18,3 +18,11 @@ choices.forEach(choice => {
         const playerChoice = e.target.id;
     })
 });
+
+// computerChoice
+
+function getComputerChoice() {
+    let arr = ["rock", "paper", "Scissors"];
+    return arr [Math.floor(Math.random()*arr.length)];
+}
+
