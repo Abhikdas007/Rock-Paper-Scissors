@@ -65,6 +65,8 @@ function getWinner(p, c){
     }
 }
 
+
+// modal 
 function showWinner (winner, computerChoice){
     if (winner === "Player"){
         scoreboard.player++;
@@ -99,3 +101,21 @@ function showWinner (winner, computerChoice){
 
     modal.style.display = "block"
 }
+
+// removing model after modal exicute
+window.addEventListener('click', function(e){
+   if(e.target === modal){
+    modal.style.display = "none";
+   } 
+})
+
+//restart
+
+restart.addEventListener('click', function(){
+    scoreboard.player = 0;
+    scoreboard.computer = 0;
+    score.innerHTML = `
+    <p>Player: 0</p>
+    <p>Computer: 0</p>
+    `
+})
