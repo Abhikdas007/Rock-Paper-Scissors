@@ -13,34 +13,31 @@
 <body>
 
     <div class="container">
-        <h1 id="result">Result</h1>
-        <header>
-            <div class="player">
+        <header class="header">
+            <h1>Rock Paper Scissors</h1>
+            <button id="restart" class="restart-btn">Restart Game</button>
+            <div class="score" id="score">
                 <p>Player:0</p>
-            </div>
-
-            <div class="computer">
                 <p>Computer:0</p>
+
             </div>
         </header>
-
-        <div class="imgs">
-            <div  class="button">
-                <i class="fa-solid fa-hand" id="rock"></i>
-                <p>Rock</p>
-            </div>
-
-            <div  class="button">
-                <i class="fa-solid fa-hand-scissors" id="scissors"></i>
-                <p>Scissors</p>
-            </div>
-            <div  class="button">
-                <i class="fa-solid fa-hand-back-fist" id="paper"></i>
-                <p>Paper</p>
-            </div>
+        <h2>Make Your Selections</h2>
+        <div class="choices">
+            <i id="rock" class="choice fas fa-hand-rock fa-10x"></i>
+            <i id="paper" class="choice fas fa-hand-paper fa-10x"></i>
+            <i id="scissors" class="choice fas fa-hand-scissors fa-10x"></i>
         </div>
-        <div class="btn"> <button id="res-btn">Restart</button></div>
-       
+    </div>
+
+    <!-- model -->
+
+    <div class="model">
+        <div id="result" class="model-content">
+            <h1>You Win</h1>
+            <i class="choice fas fa-hand-rock fa-10x"></i>
+            <p>Computer Chose Rock</p>
+        </div>
     </div>
 
     <script src="./script.js"></script>
