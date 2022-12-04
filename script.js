@@ -16,13 +16,52 @@ choices.forEach(choice => {
     choice.addEventListener('click', function(e){
         restart.style.display = "inline-block";
         const playerChoice = e.target.id;
+        const computerChoice = getComputerChoice();
+
+        const winner = getWinner(playerChoice, computerChoice)
+        console.log(playerChoice, computerChoice, winner)
     })
 });
 
 // computerChoice
 
 function getComputerChoice() {
-    let arr = ["rock", "paper", "Scissors"];
+    let arr = ["rock", "paper", "scissors"];
     return arr [Math.floor(Math.random()*arr.length)];
+}
+
+// winner selection
+
+function getWinner(p, c){
+    if(p === c){
+        return "Draw";
+    }
+    else if (p === "rock"){
+        if(c === "paper"){
+            return "Computer";
+        }else{
+            return "Player";
+        }
+    }
+
+    else if (p === "paper"){
+        if(c === "scissors"){
+            return "Computer";
+        }else{
+            return "Player";
+        }
+    }
+
+    else if (p === "scissors"){
+        if (c === "rock"){
+            return "Computer";
+        }else{
+            return "Player";
+        }
+    }
+
+    else{
+        return "Try again";
+    }
 }
 
