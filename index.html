@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game</title>
+    <script src="https://kit.fontawesome.com/ecb6081758.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <div class="container">
+        <h1 id="result">Result</h1>
+        <header>
+            <div class="player">
+                <p>Player:0</p>
+            </div>
+
+            <div class="computer">
+                <p>Computer:0</p>
+            </div>
+        </header>
+
+        <div class="imgs">
+            <div  class="button">
+                <i class="fa-solid fa-hand" id="rock"></i>
+                <p>Rock</p>
+            </div>
+
+            <div  class="button">
+                <i class="fa-solid fa-hand-scissors" id="scissors"></i>
+                <p>Scissors</p>
+            </div>
+            <div  class="button">
+                <i class="fa-solid fa-hand-back-fist" id="paper"></i>
+                <p>Paper</p>
+            </div>
+        </div>
+        <div class="btn"> <button id="res-btn">Restart</button></div>
+       
+    </div>
 
     <script src="./script.js"></script>
+
 </body>
+
 </html>

@@ -1,4 +1,29 @@
 
+// geting the buttons value
+const buttons = document.querySelectorAll(".button");
+const scoreScreen = document.querySelector("#result");
+const plyerScore = document.querySelector(".player");
+const computerScore = document.querySelector(".computer");
+console.log(buttons);
+const score = {
+    player: 0,
+    computer: 0
+}
+
+buttons.forEach(button => {
+    button.addEventListener("click", function (e) {
+        const player = e.target.id;
+        const computer = getComputerChoice();
+        for (let i = 0; i < 5; i++) {
+            console.log(player, computer, playRound(player, computer));
+           
+        }
+        game1(playRound(player, computer))
+    })
+});
+
+
+
 // Random Option genarated for computer;
 function getComputerChoice() {
     let computerChoice = ["rock", "paper", "scissors"][Math.floor(Math.random() * 3)];
@@ -6,32 +31,40 @@ function getComputerChoice() {
 }
 
 
+
+
 // Logic of the game 
 function playRound(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
-        return "draw";
+        return "Draw";
     }
-    else if (playerChoice === "rock" && computerChoice === "scissors") {
-        return "Player Wins!";
+
+    else if (playerChoice === "rock") {
+        if (computerChoice === "paper") {
+            return "Computer";
+        } else {
+            return "Player";
+        }
     }
-    else if (playerChoice === "paper" && computerChoice === "rock") {
-        return "Player Wins!";
+
+    else if (playerChoice === "paper") {
+        if (computerChoice === "scissors") {
+            return "Computer";
+        } else {
+            return "Player";
+        }
     }
-    else if (playerChoice === "scissors" && computerChoice === "paper") {
-        return "Player Wins!";
-    }
-    else if (playerChoice === "scissors" && computerChoice === "rock") {
-        return "Computer Wins!";
-    }
-    else if (playerChoice === "rock" && computerChoice === "paper") {
-        return "Computer Wins!";
-    }
-    else if (playerChoice === "paper" && computerChoice === "scissors") {
-        return "Computer Wins!";
+
+    else if (playerChoice === "scissors") {
+        if (computerChoice === "rock") {
+            return "Computer";
+        } else {
+            return "Player";
+        }
     }
 
     else {
-        "Try again!";
+        return "Try Again";
     }
 }
 
@@ -79,7 +112,7 @@ function game() {
         return `Player Score is ${playerScore} and Computer Score is ${computerScore} so the winner is Player`;
     }
 
-    else if (playerScore === computerScore){
+    else if (playerScore === computerScore) {
         return `Player Score is ${playerScore} and Computer Score is ${computerScore} so the game is Draw!`;
     }
 
@@ -90,6 +123,32 @@ function game() {
 
 }
 
+function game1(playRound) {
+
+    if (playRound === "Player") {
+        score.player++;
+        plyerScore.innerHTML = `<p>Player:${score.player}</p>`;
+        scoreScreen.textContent = "Player Won";
+
+    }
+
+    else if (playRound === "Computer") {
+        score.computer++;
+        computerScore.innerHTML = `<p>Computer:${score.computer}</p>`;
+        scoreScreen.textContent = "Computer Won";
+    }
+
+    else {
+        scoreScreen.textContent = "Draw";
+    }
 
 
-console.log(game());
+
+}
+
+
+
+
+
+
+
