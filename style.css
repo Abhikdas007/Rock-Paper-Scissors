@@ -35,6 +35,7 @@ body{
     cursor: pointer;
     outline: none;
     border: none;
+    margin-bottom: 1rem;
 }
 
 .restart-btn:hover{
