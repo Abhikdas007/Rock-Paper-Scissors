@@ -5,7 +5,7 @@ const restart = document.getElementById("restart");
 const modal = document.querySelector(".modal");
 const scoreboard = {
     player: 0,
-    cpmpurt: 0
+    computer: 0
 }
 
 
@@ -19,7 +19,7 @@ choices.forEach(choice => {
         const computerChoice = getComputerChoice();
 
         const winner = getWinner(playerChoice, computerChoice)
-        console.log(playerChoice, computerChoice, winner)
+        showWinner(winner, computerChoice);
     })
 });
 
@@ -65,3 +65,37 @@ function getWinner(p, c){
     }
 }
 
+function showWinner (winner, computerChoice){
+    if (winner === "Player"){
+        scoreboard.player++;
+        //show modal result
+
+        result.innerHTML = `<h1 class="text-win">You Win</h1>
+        <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+        <p>Computer Chose <strong>${computerChoice}</strong></p>
+        `
+    } 
+    else if (winner === "Computer"){
+        scoreboard.computer++;
+
+        result.innerHTML = `<h1 class="text-lose">You Lose</h1>
+        <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+        <p>Computer Chose <strong>${computerChoice}</strong></p>
+        `
+    }
+
+    else{
+        result.innerHTML = `<h1>It is a Drwa</h1>
+        <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+        <p>Computer Chose <strong>${computerChoice}</strong></p>
+        `
+    }
+    // show score
+
+    score.innerHTML = `
+    <p>Player: ${scoreboard.player}</p>
+    <p>Computer: ${scoreboard.computer}</p>
+    `;
+
+    modal.style.display = "block"
+}
